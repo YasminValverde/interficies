@@ -1,0 +1,54 @@
+* {
+ box-sizing: border-box;
+}
+header{
+   background-color: #93D7AF;
+   height: 2em;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+
+.bienvenida{
+    color: #000000b7;
+    font-size: small;
+    margin:8px;
+    
+
+}
+.buscador {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+}
+
+
+
+ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #27AE60;
+        }
+        
+        li {
+            float: left;
+        }
+        
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        li a:hover {
+            background-color: #99A4AF;
+            border-radius: 5em;
+        
+        }
+   
