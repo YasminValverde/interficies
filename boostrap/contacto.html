@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto - Supermercado Valverde</title>
+    <link rel="stylesheet" href="boostrap.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  </head>
+  <body>
+
+
+    <header>
+      <div class="header-top">
+        <span class="header-top-logo">Bienvenido/@ a Supermercado Valverde</span>
+        <div class="buscador-wrapper">
+          <input type="text" class="buscador" placeholder="Buscador..." />
+          <i class="bi bi-search buscador-icon"></i>
+        </div>
+        <div class="header-icons">
+          <i class="bi bi-person"></i>
+          <i class="bi bi-cart"></i>
+        </div>
+      </div>
+    </header>
+
+
+    <nav class="header-nav">
+      <div class="header-nav-inner">
+        <span class="logo">Valverde</span>
+        <ul class="nav-menu">
+          <li><a href="supermercado.html">Productos</a></li>
+          <li><a href="contacto.html" class="active">Contactanos</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="container">
+
+
+      <div class="banner-fila">
+        <section class="banner">
+          <div class="banner-content">
+            <h2>Contáctanos</h2>
+            <p>Estamos aquí para ayudarte</p>
+          </div>
+        </section>
+      </div>
+
+      <section class="contacto-section">
+        <div class="fila-contacto">
+          <div class="formulario-container">
+            <h2><i class="bi bi-envelope-paper"></i> Envíanos un mensaje</h2>
+            <form class="contacto-form">
+              <div class="form-group">
+                <label for="nombre">Nombre completo *</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
+              </div>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required placeholder="tu@email.com" />
+              </div>
+              <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="600 123 456" />
+              </div>
+              <div class="form-group">
+                <label for="asunto">Asunto *</label>
+                <select id="asunto" name="asunto" required>
+                  <option value="">Selecciona un asunto</option>
+                  <option value="consulta">Consulta general</option>
+                  <option value="sugerencia">Sugerencia</option>
+                  <option value="queja">Queja o reclamación</option>
+                  <option value="pedido">Información de pedido</option>
+                  <option value="trabajo">Trabaja con nosotros</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="mensaje">Mensaje *</label>
+                <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe tu mensaje aquí..."></textarea>
+              </div>
+              <button type="submit" class="btn-submit">Enviar mensaje</button>
+            </form>
+          </div>
+
+
+          <div class="info-contacto ocultar-mobil">
+            <h2><i class="bi bi-headset"></i> Información de contacto</h2>
+            <div class="contacto-item">
+              <h3><i class="bi bi-geo-alt-fill"></i> Dirección Central</h3>
+              <p>Calle Principal, 123</p>
+              <p>08001 Barcelona</p>
+              <p>España</p>
+            </div>
+            <div class="contacto-item">
+              <h3><i class="bi bi-telephone-fill"></i> Teléfonos</h3>
+              <p><strong>Atención al cliente:</strong></p>
+              <p>900 123 456 (gratuito)</p>
+              <p><strong>Horario:</strong></p>
+              <p>Lunes a Viernes: 9:00 - 18:00</p>
+            </div>
+            <div class="contacto-item">
+              <h3><i class="bi bi-envelope-fill"></i> Email</h3>
+              <p>info@valverde.com</p>
+              <p>atencioncliente@valverde.com</p>
+            </div>
+            <div class="contacto-item">
+              <h3><i class="bi bi-clock-fill"></i> Horario Tiendas</h3>
+              <p><strong>Lunes a Sábado:</strong> 9:00 - 21:00</p>
+              <p><strong>Domingos:</strong> 10:00 - 14:00</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mapa-section">
+        <div>
+          <div>
+            <h2><i class="bi bi-map"></i> Encuéntranos</h2>
+            <img src="/Img/mapa.png" alt="Mapa de ubicación" class="mapa-img" />
+          </div>
+        </div>
+      </section>
+
+
+      <section class="info-boxes">
+        <div class="fila-3">
+          <div>
+            <div class="info-box">
+              <div class="info-icon"><i class="bi bi-truck"></i></div>
+              <h3>Envío a Domicilio</h3>
+              <p>Recibe tu compra</p>
+              <p>en 24-48 horas</p>
+            </div>
+          </div>
+          <div>
+            <div class="info-box">
+              <div class="info-icon"><i class="bi bi-credit-card"></i></div>
+              <h3>Pago Seguro</h3>
+              <p>Múltiples métodos</p>
+              <p>de pago disponibles</p>
+            </div>
+          </div>
+          <div>
+            <div class="info-box">
+              <div class="info-icon"><i class="bi bi-gift"></i></div>
+              <h3>Ofertas Exclusivas</h3>
+              <p>Descuentos especiales</p>
+              <p>para clientes</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="fila-4">
+          <div class="footer-col">
+            <h4>Supermercado Valverde</h4>
+            <p>Tu supermercado de confianza desde 1995</p>
+            <p>Calidad, frescura y los mejores precios</p>
+          </div>
+          <div class="footer-col">
+            <h4>Enlaces Rápidos</h4>
+            <ul>
+              <li><a href="supermercado.html">Inicio</a></li>
+              <li><a href="#">Productos</a></li>
+              <li><a href="#">Ofertas</a></li>
+              <li><a href="#">Supermercados</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contacto</h4>
+            <p><i class="bi bi-telephone-fill"></i> Tel: 900 123 456</p>
+            <p><i class="bi bi-envelope-fill"></i> Email: info@valverde.com</p>
+            <p><i class="bi bi-geo-alt-fill"></i> Barcelona, España</p>
+          </div>
+          <div class="footer-col">
+            <h4>Síguenos</h4>
+            <p><i class="bi bi-facebook"></i> Facebook</p>
+            <p><i class="bi bi-instagram"></i> Instagram</p>
+            <p><i class="bi bi-twitter-x"></i> Twitter</p>
+            <p><i class="bi bi-linkedin"></i> LinkedIn</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Supermercado Valverde. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

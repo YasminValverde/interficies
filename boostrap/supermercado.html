@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VALVERDE</title>
-    <link rel="stylesheet" href="graellaFlexible.css" />
+    <link rel="stylesheet" href="boostrap.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   </head>
   <body>
@@ -38,8 +38,8 @@
     <main class="container">
 
       <!-- BANNER: 12 columnes -->
-      <div class="fila">
-        <section class="col-12 col-s-12 banner">
+      <div class="banner-fila">
+        <section class="banner">
           <div class="banner-content">
             <h2>Bienvenido a Supermercado Valverde</h2>
             <p>Calidad y frescura en cada producto</p>
@@ -50,43 +50,43 @@
       <!-- CATEGORIES: mòbil 1 col | tauleta 2 col (col-s-6) | escriptori 2 col (col-4) -->
       <section class="categorias">
         <h2 class="section-title">Nuestras Categorías</h2>
-        <div class="fila">
-          <div class="col-4 col-s-6">
+        <div class="fila-3">
+          <div>
             <div class="categoria-card">
               <div class="categoria-icon"><i class="bi bi-flower1"></i></div>
               <h3>Frutas y Verduras</h3>
               <p>Frescas del día</p>
             </div>
           </div>
-          <div class="col-4 col-s-6">
+          <div>
             <div class="categoria-card">
               <div class="categoria-icon"><i class="bi bi-fire"></i></div>
               <h3>Carnicería</h3>
               <p>Carnes selectas</p>
             </div>
           </div>
-          <div class="col-4 col-s-6">
+          <div>
             <div class="categoria-card">
               <div class="categoria-icon"><i class="bi bi-basket2"></i></div>
               <h3>Panadería</h3>
               <p>Recién horneado</p>
             </div>
           </div>
-          <div class="col-4 col-s-6">
+          <div>
             <div class="categoria-card">
               <div class="categoria-icon"><i class="bi bi-cup-straw"></i></div>
               <h3>Lácteos</h3>
               <p>Productos frescos</p>
             </div>
           </div>
-          <div class="col-4 col-s-6">
+          <div>
             <div class="categoria-card">
               <div class="categoria-icon"><i class="bi bi-water"></i></div>
               <h3>Pescadería</h3>
               <p>Pescado fresco</p>
             </div>
           </div>
-          <div class="col-4 col-s-6">
+          <div>
             <div class="categoria-card">
               <div class="categoria-icon"><i class="bi bi-cup-hot"></i></div>
               <h3>Bebidas</h3>
@@ -99,8 +99,8 @@
       <!-- OFERTES: mòbil 1 col | tauleta 2 col (col-s-6) | escriptori 3 col (col-4) -->
       <section class="ofertas">
         <h2 class="section-title">Ofertas de la Semana</h2>
-        <div class="fila">
-          <div class="col-4 col-s-6">
+        <div class="fila-3">
+          <div>
             <div class="oferta-card">
               <div class="oferta-badge">-30%</div>
               <img class="oferta-img" src="/Img/Manzana-Roja-Infantil-4-Unidades-Por-Lb-Aproximadamente-1-30.webp" alt="Manzanas Golden" />
@@ -109,7 +109,7 @@
               <p class="precio-actual">2.45€/kg</p>
             </div>
           </div>
-          <div class="col-4 col-s-6">
+          <div>
             <div class="oferta-card">
               <div class="oferta-badge">-25%</div>
               <img class="oferta-img" src="/Img/319558.jpg" alt="Pechuga de Pollo" />
@@ -118,8 +118,7 @@
               <p class="precio-actual">6.00€/kg</p>
             </div>
           </div>
-          <!-- Ocultar la 3a oferta en tauleta (col-s-12 la posa a sota, millor ocultar-la) -->
-          <div class="col-4 col-s-6">
+          <div>
             <div class="oferta-card">
               <div class="oferta-badge">-20%</div>
               <img class="oferta-img" src="/Img/pan-integral-100-fino.webp" alt="Pan Integral" />
@@ -133,8 +132,8 @@
 
       <!-- INFO BOXES: mòbil 1 col | tauleta 2 col (col-s-6) | escriptori 3 col (col-4) -->
       <section class="info-boxes">
-        <div class="fila">
-          <div class="col-4 col-s-6">
+        <div class="fila-3">
+          <div>
             <div class="info-box">
               <div class="info-icon"><i class="bi bi-clock"></i></div>
               <h3>Horario</h3>
@@ -143,7 +142,7 @@
               <p>Domingos: 10:00 - 14:00</p>
             </div>
           </div>
-          <div class="col-4 col-s-6">
+          <div>
             <div class="info-box">
               <div class="info-icon"><i class="bi bi-geo-alt"></i></div>
               <h3>Ubicación</h3>
@@ -151,7 +150,7 @@
               <p>más cercano</p>
             </div>
           </div>
-          <div class="col-4 col-s-6">
+          <div>
             <div class="info-box">
               <div class="info-icon"><i class="bi bi-telephone"></i></div>
               <h3>Contacto</h3>
@@ -181,13 +180,13 @@
     <!-- FOOTER: mòbil 1 col | tauleta 2 col (col-s-6) | escriptori 3 col (col-3) -->
     <footer>
       <div class="container">
-        <div class="fila">
-          <div class="col-3 col-s-6 footer-col">
+        <div class="fila-4">
+          <div class="footer-col">
             <h4>Supermercado Valverde</h4>
             <p>Tu supermercado de confianza desde 1995</p>
             <p>Calidad, frescura y los mejores precios</p>
           </div>
-          <div class="col-3 col-s-6 footer-col">
+          <div class="footer-col">
             <h4>Enlaces Rápidos</h4>
             <ul>
               <li><a href="#">Productos</a></li>
@@ -196,13 +195,13 @@
               <li><a href="#">Trabaja con nosotros</a></li>
             </ul>
           </div>
-          <div class="col-3 col-s-6 footer-col">
+          <div class="footer-col">
             <h4>Contacto</h4>
             <p><i class="bi bi-telephone-fill"></i> Tel: 900 123 456</p>
             <p><i class="bi bi-envelope-fill"></i> Email: info@valverde.com</p>
             <p><i class="bi bi-geo-alt-fill"></i> Barcelona, España</p>
           </div>
-          <div class="col-3 col-s-6 footer-col">
+          <div class="footer-col">
             <h4>Síguenos</h4>
             <p><i class="bi bi-facebook"></i> Facebook</p>
             <p><i class="bi bi-instagram"></i> Instagram</p>
