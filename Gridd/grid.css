@@ -54,39 +54,36 @@ header {
 }
 
 .header-top {
-  display: flex;        /* elements en fila */
-  flex-wrap: wrap;      /* si no caben, saltan a la siguiente línea */
-  align-items: center;  /* alineados verticalmente al centro */
-  justify-content: space-between; /* espacio entre logo, buscador e iconos */
+  display: grid;
+  grid-template-columns: 1fr auto; /* móvil: logo | iconos */
+  grid-template-areas:
+    "logo  iconos"
+    "busca busca";  /* buscador ocupa toda la fila inferior */
+  align-items: center;
   padding: 0.4rem 1rem;
   margin: 0 auto;
   gap: 0.5rem;
 }
 
 .header-top-logo {
+  grid-area: logo;
   color: #1A1A1A;
   font-size: 0.6rem;
   font-weight: 600;
-  flex-grow: 1;   /* ocupa el espacio sobrante */
-  flex-shrink: 1;
-  flex-basis: auto;
 }
 
 .buscador-wrapper {
-  display: flex;       /* input e icono en fila */
-  align-items: center; /* alineados verticalmente */
+  grid-area: busca;
+  display: grid;
+  grid-template-columns: 1fr auto; /* input ocupa todo, icono al lado */
+  align-items: center;
   background-color: #FFFFFF;
   border-radius: 20px;
   padding: 0.3rem 0.8rem;
   gap: 0.4rem;
-  width: 100%; /* móvil: ocupa toda la línea */
-  order: 3;    /* móvil: va debajo del logo e iconos */
 }
 
 .buscador {
-  flex-grow: 1;  /* ocupa todo el espacio disponible dentro del buscador */
-  flex-shrink: 1;
-  flex-basis: auto;
   border: none;
   outline: none;
   font-size: 0.85rem;
@@ -100,10 +97,11 @@ header {
 }
 
 .header-icons {
-  display: flex;       /* iconos en fila */
+  grid-area: iconos;
+  display: grid;
+  grid-template-columns: repeat(2, auto); /* un icono por columna */
   align-items: center;
   gap: 0.8rem;
-  order: 2; /* móvil: va a la derecha del logo */
 }
 
 .header-icons i {
@@ -118,12 +116,12 @@ header {
 }
 
 @media only screen and (min-width: 768px) {
-  .header-top-logo { font-size: 1rem; }
-  .buscador-wrapper {
-    width: 380px; /* desktop: ancho fijo */
-    order: 0;     /* vuelve al orden normal */
+  .header-top {
+    grid-template-columns: 1fr auto auto; /* logo | buscador | iconos */
+    grid-template-areas: "logo busca iconos"; /* todo en una fila */
   }
-  .header-icons { order: 0; }
+  .header-top-logo { font-size: 1rem; }
+  .buscador-wrapper { width: 380px; }
 }
 
 /* =============================================
@@ -138,9 +136,9 @@ header {
 }
 
 .header-nav-inner {
-  display: flex;
-  flex-direction: column; /* móvil: logo arriba, menú abajo */
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr; /* móvil: logo y menú apilados */
+  justify-items: center;
   padding: 0 1rem;
 }
 
@@ -158,8 +156,8 @@ header {
 
 .nav-menu {
   list-style: none;
-  display: flex;
-  flex-direction: column; /* móvil: enlaces apilados verticalmente */
+  display: grid;
+  grid-template-columns: 1fr; /* móvil: enlaces apilados */
   width: 100%;
 }
 
@@ -191,112 +189,82 @@ header {
 
 @media only screen and (min-width: 768px) {
   .header-nav-inner {
-    flex-direction: row; /* desktop: logo y menú en fila */
+    grid-template-columns: auto 1fr; /* desktop: logo | menú en fila */
+    justify-items: start;
     padding: 0 2rem;
   }
   .logo {
     font-size: 1.8rem;
     padding: 0.5rem 1.2rem 0.5rem 0;
     border-bottom: none;
-    border-right: 2px solid #FFFFFF59; /* separador a la derecha del logo en desktop */
+    border-right: 2px solid #FFFFFF59;
     margin-right: 0.5rem;
     margin-bottom: 0;
     text-align: left;
   }
   .nav-menu {
-    flex-direction: row; /* desktop: enlaces en fila */
+    grid-template-columns: repeat(auto-fit, minmax(80px, auto)); /* desktop: enlaces en fila */
     align-items: center;
-    justify-content: center;
+    justify-items: center;
   }
   .nav-menu li { border-bottom: none; }
   .nav-menu li a { font-size: 0.9rem; padding: 0.7rem 1.1rem; }
 }
 
 /* =============================================
-   LAYOUT - FILAS FLEXBOX
+   LAYOUT - CSS GRID
    ============================================= */
 
 /* Banner: 1 sola columna que ocupa todo */
 .banner-fila {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 .banner-fila > * {
-  flex-grow: 1;   /* ocupa todo el espacio disponible */
-  flex-shrink: 1;
-  flex-basis: auto;
   padding: 15px;
 }
 
 /* Fila de 3 columnas: 1 col móvil → 2 col tablet → 3 col desktop */
 .fila-3 {
-  display: flex;
-  flex-wrap: wrap; /* si no caben, saltan a la siguiente línea */
+  display: grid;
+  grid-template-columns: 1fr; /* móvil: 1 columna */
 }
 .fila-3 > * {
-  flex-grow: 0;     /* NO crece para ocupar espacio sobrante */
-  flex-shrink: 0;   /* NO se encoge si no hay espacio */
-  flex-basis: 100%; /* móvil: 1 columna */
   padding: 15px;
 }
 @media only screen and (min-width: 576px) {
-  .fila-3 > * {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 50%; /* tablet: 2 columnas */
-  }
+  .fila-3 { grid-template-columns: repeat(2, 1fr); } /* tablet: 2 columnas */
 }
 @media only screen and (min-width: 768px) {
-  .fila-3 > * {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 33.33%; /* desktop: 3 columnas */
-  }
+  .fila-3 { grid-template-columns: repeat(3, 1fr); } /* desktop: 3 columnas */
 }
 
 /* Fila de 4 columnas: 1 col móvil → 2 col tablet → 4 col desktop */
 .fila-4 {
-  display: flex;
-  flex-wrap: wrap; /* si no caben, saltan a la siguiente línea */
+  display: grid;
+  grid-template-columns: 1fr; /* móvil: 1 columna */
 }
 .fila-4 > * {
-  flex-grow: 0;     /* NO crece para ocupar espacio sobrante */
-  flex-shrink: 0;   /* NO se encoge si no hay espacio */
-  flex-basis: 100%; /* móvil: 1 columna */
   padding: 15px;
 }
 @media only screen and (min-width: 576px) {
-  .fila-4 > * {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 50%; /* tablet: 2 columnas */
-  }
+  .fila-4 { grid-template-columns: repeat(2, 1fr); } /* tablet: 2 columnas */
 }
 @media only screen and (min-width: 768px) {
-  .fila-4 > * {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 25%; /* desktop: 4 columnas */
-  }
+  .fila-4 { grid-template-columns: repeat(4, 1fr); } /* desktop: 4 columnas */
 }
 
 /* Fila contacto: formulario ocupa 2/3, info lateral 1/3 */
 .fila-contacto {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr; /* móvil: 1 columna */
   gap: 0.4rem;
 }
 .fila-contacto > * {
   padding: 15px;
 }
-.formulario-container {
-  flex-grow: 2;   /* crece el doble que .info-contacto */
-  flex-shrink: 1;
-  flex-basis: 280px;
-}
-.info-contacto {
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 220px;
+@media only screen and (min-width: 768px) {
+  .fila-contacto { grid-template-columns: 2fr 1fr; } /* desktop: formulario 2/3, info 1/3 */
 }
 
 /* =============================================
@@ -366,9 +334,8 @@ header {
 }
 
 .categoria-card {
-  display: flex;
-  flex-direction: column; /* icono, título y texto apilados verticalmente */
-  align-items: center;    /* centrados horizontalmente */
+  display: grid;
+  justify-items: center; /* centra horizontalmente cada hijo */
   background-color: #FFFFFF;
   border-radius: 10px;
   padding: 1.5rem;
@@ -477,9 +444,8 @@ header {
 }
 
 .info-box {
-  display: flex;
-  flex-direction: column; /* icono, título y texto apilados verticalmente */
-  align-items: center;    /* centrados horizontalmente */
+  display: grid;
+  justify-items: center; /* centra horizontalmente cada hijo */
   background-color: #FFFFFF;
   border-radius: 10px;
   padding: 1.5rem;
@@ -545,24 +511,24 @@ header {
 }
 
 .newslatter-form {
-  display: flex;        /* input y botón en fila */
-  flex-wrap: wrap;      /* si no caben, el botón baja */
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr; /* móvil: input y botón apilados */
   gap: 0.5rem;
   max-width: 450px;
   margin: 0 auto;
 }
 
 .newslatter-form input[type="email"] {
-  flex-grow: 1;    /* ocupa todo el espacio disponible */
-  flex-shrink: 1;
-  flex-basis: 200px;
   padding: 0.6rem 1rem;
   border: 2px solid #E0E0E0;
   border-radius: 8px;
   font-size: 0.9rem;
   outline: none;
   color: #2C3E50;
+}
+
+@media only screen and (min-width: 480px) {
+  .newslatter-form { grid-template-columns: 1fr auto; } /* tablet+: input | botón en fila */
 }
 
 .newslatter-form input[type="email"]:focus {
@@ -608,14 +574,12 @@ header {
 }
 
 .contacto-form {
-  display: flex;
-  flex-direction: column; /* campos apilados verticalmente */
+  display: grid;
   gap: 1.2rem;
 }
 
 .form-group {
-  display: flex;
-  flex-direction: column; /* label encima del input */
+  display: grid; /* label encima del input */
 }
 
 .form-group label {
@@ -766,3 +730,60 @@ footer {
   color: #BDC3C7;
   font-size: 0.9rem;
 }
+
+
+
+/* 
+Ahora sí está todo convertido a CSS Grid. Resumen de todos los cambios:
+
+.header-top → grid con grid-template-areas para posicionar logo/buscador/iconos, responsive en desktop a una sola fila
+
+.buscador-wrapper → grid de 2 columnas (input | icono)
+
+.header-icons → grid de columnas automáticas por icono
+
+.header-nav-inner → grid de 1 columna en móvil, auto 1fr en desktop
+
+.nav-menu → grid de 1 columna en móvil, repeat(auto-fit, ...) en desktop
+
+.categoria-card → grid con justify-items: center
+
+.info-box → grid con justify-items: center
+
+.newslatter-form → grid de 1 columna en móvil, 1fr auto en tablet+
+
+.contacto-form y .form-group → grid (equivalente a flex-direction: column) */
+/* 
+Layouts principales:
+
+.banner-fila → grid 1 columna
+
+.fila-3 → grid responsive (1 → 2 → 3 columnas)
+
+.fila-4 → grid responsive (1 → 2 → 4 columnas)
+
+.fila-contacto → grid responsive (1 columna → 2fr 1fr)
+
+✅ Header:
+
+.header-top → grid con grid-template-areas
+
+.buscador-wrapper → grid 2 columnas
+
+.header-icons → grid auto-columnas
+
+.header-nav-inner → grid responsive
+
+.nav-menu → grid responsive
+
+✅ Componentes:
+
+.categoria-card → grid con justify-items: center
+
+.info-box → grid con justify-items: center
+
+.newslatter-form → grid responsive
+
+.contacto-form → grid
+
+.form-group → grid */
