@@ -1,10 +1,15 @@
+/* ============================================================
+   RESET
+   ============================================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* === VARIABLES === */
+/* ============================================================
+   VARIABLES CSS - Definidas en :root para ser globales
+   ============================================================ */
 :root {
   --color-principal:   #2E9E4F;
   --color-principal-m: #6DCF8A;
@@ -31,10 +36,9 @@ body {
   background-color: #C8F0D8;
 }
 
-/* =============================================
+/* ============================================================
    CONTAINER
-   ============================================= */
-
+   ============================================================ */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -45,10 +49,13 @@ body {
   .container { padding: 2rem; }
 }
 
-/* =============================================
-   HEADER TOP
-   ============================================= */
-
+/* ============================================================
+   HEADER TOP - CSS GRID con grid-template-areas
+   grid-template-areas: nombra zonas del grid visualmente
+   grid-area: asigna cada hijo a una zona nombrada
+   Móvil: logo e iconos en fila, buscador debajo (2 filas)
+   Desktop: todo en una sola fila (3 columnas)
+   ============================================================ */
 header {
   background-color: #6DCF8A;
 }
@@ -65,6 +72,7 @@ header {
   gap: 0.5rem;
 }
 
+/* grid-area: asigna el elemento a la zona nombrada */
 .header-top-logo {
   grid-area: logo;
   color: #1A1A1A;
@@ -72,6 +80,10 @@ header {
   font-weight: 600;
 }
 
+/* ============================================================
+   BUSCADOR - Grid interno de 2 columnas
+   grid-template-columns: 1fr auto = input ocupa todo, icono al lado
+   ============================================================ */
 .buscador-wrapper {
   grid-area: busca;
   display: grid;
@@ -96,10 +108,11 @@ header {
   font-size: 0.95rem;
 }
 
+/* repeat(2, auto) = 2 columnas automáticas (una por icono) */
 .header-icons {
   grid-area: iconos;
   display: grid;
-  grid-template-columns: repeat(2, auto); /* un icono por columna */
+  grid-template-columns: repeat(2, auto);
   align-items: center;
   gap: 0.8rem;
 }
@@ -115,6 +128,7 @@ header {
   .header-top-logo { font-size: 0.75rem; }
 }
 
+/* Desktop: todo en una sola fila con 3 columnas */
 @media only screen and (min-width: 768px) {
   .header-top {
     grid-template-columns: 1fr auto auto; /* logo | buscador | iconos */
@@ -124,10 +138,11 @@ header {
   .buscador-wrapper { width: 380px; }
 }
 
-/* =============================================
-   HEADER NAV
-   ============================================= */
-
+/* ============================================================
+   NAVBAR - CSS Grid
+   grid-template-columns:1fr = móvil: logo y menú apilados (1 columna)
+   Desktop: auto 1fr = logo ocupa lo que necesita, menú el resto
+   ============================================================ */
 .header-nav {
   background-color: #2E9E4F;
   position: sticky;
@@ -150,14 +165,15 @@ header {
   padding: 0.5rem 0;
   white-space: nowrap;
   text-align: center;
-  border-bottom: 2px solid #FFFFFF59; /* separador debajo del logo en móvil */
+  border-bottom: 2px solid #FFFFFF59;
   margin-bottom: 0.3rem;
 }
 
+/* grid-template-columns:1fr = móvil: enlaces apilados verticalmente */
 .nav-menu {
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr; /* móvil: enlaces apilados */
+  grid-template-columns: 1fr;
   width: 100%;
 }
 
@@ -187,9 +203,10 @@ header {
   border-radius: 20px;
 }
 
+/* Desktop: auto 1fr = logo ocupa lo que necesita, menú el resto */
 @media only screen and (min-width: 768px) {
   .header-nav-inner {
-    grid-template-columns: auto 1fr; /* desktop: logo | menú en fila */
+    grid-template-columns: auto 1fr;
     justify-items: start;
     padding: 0 2rem;
   }
@@ -202,8 +219,9 @@ header {
     margin-bottom: 0;
     text-align: left;
   }
+  /* repeat(auto-fit, minmax(80px, auto)) = columnas automáticas según espacio */
   .nav-menu {
-    grid-template-columns: repeat(auto-fit, minmax(80px, auto)); /* desktop: enlaces en fila */
+    grid-template-columns: repeat(auto-fit, minmax(80px, auto));
     align-items: center;
     justify-items: center;
   }
@@ -211,9 +229,11 @@ header {
   .nav-menu li a { font-size: 0.9rem; padding: 0.7rem 1.1rem; }
 }
 
-/* =============================================
-   LAYOUT - CSS GRID
-   ============================================= */
+/* ============================================================
+   LAYOUT - CSS GRID (sistema de columnas)
+   A diferencia de Flexbox, Grid define filas Y columnas a la vez
+   repeat(N, 1fr) = N columnas de igual tamaño
+   ============================================================ */
 
 /* Banner: 1 sola columna que ocupa todo */
 .banner-fila {
@@ -224,7 +244,10 @@ header {
   padding: 15px;
 }
 
-/* Fila de 3 columnas: 1 col móvil → 2 col tablet → 3 col desktop */
+/* ============================================================
+   FILA DE 3 COLUMNAS - Responsive con CSS Grid
+   Móvil: 1fr (1 col) → Tablet: repeat(2,1fr) → Desktop: repeat(3,1fr)
+   ============================================================ */
 .fila-3 {
   display: grid;
   grid-template-columns: 1fr; /* móvil: 1 columna */
@@ -233,13 +256,16 @@ header {
   padding: 15px;
 }
 @media only screen and (min-width: 576px) {
-  .fila-3 { grid-template-columns: repeat(2, 1fr); } /* tablet: 2 columnas */
+  .fila-3 { grid-template-columns: repeat(2, 1fr); } /* tablet: 2 columnas iguales */
 }
 @media only screen and (min-width: 768px) {
-  .fila-3 { grid-template-columns: repeat(3, 1fr); } /* desktop: 3 columnas */
+  .fila-3 { grid-template-columns: repeat(3, 1fr); } /* desktop: 3 columnas iguales */
 }
 
-/* Fila de 4 columnas: 1 col móvil → 2 col tablet → 4 col desktop */
+/* ============================================================
+   FILA DE 4 COLUMNAS - Responsive con CSS Grid
+   Móvil: 1fr → Tablet: repeat(2,1fr) → Desktop: repeat(4,1fr)
+   ============================================================ */
 .fila-4 {
   display: grid;
   grid-template-columns: 1fr; /* móvil: 1 columna */
@@ -254,7 +280,10 @@ header {
   .fila-4 { grid-template-columns: repeat(4, 1fr); } /* desktop: 4 columnas */
 }
 
-/* Fila contacto: formulario ocupa 2/3, info lateral 1/3 */
+/* ============================================================
+   FILA CONTACTO - Formulario 2/3 + Info lateral 1/3
+   2fr 1fr = el formulario ocupa el doble que la info lateral
+   ============================================================ */
 .fila-contacto {
   display: grid;
   grid-template-columns: 1fr; /* móvil: 1 columna */
@@ -267,10 +296,9 @@ header {
   .fila-contacto { grid-template-columns: 2fr 1fr; } /* desktop: formulario 2/3, info 1/3 */
 }
 
-/* =============================================
+/* ============================================================
    BANNER
-   ============================================= */
-
+   ============================================================ */
 .banner {
   background-color: #2C3E50;
   color: #FFFFFF;
@@ -301,10 +329,9 @@ header {
   .banner-content h2 { font-size: 3rem; }
 }
 
-/* =============================================
-   SECTION TITLE
-   ============================================= */
-
+/* ============================================================
+   SECTION TITLE - Línea decorativa con ::after
+   ============================================================ */
 .section-title {
   color: #2E9E4F;
   font-size: 1.8rem;
@@ -315,7 +342,7 @@ header {
 }
 
 .section-title::after {
-  content: '';
+  content: ''; /* obligatorio para que aparezca el pseudoelemento */
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -325,10 +352,10 @@ header {
   background-color: #2E9E4F;
 }
 
-/* =============================================
-   CATEGORIAS
-   ============================================= */
-
+/* ============================================================
+   CATEGORÍAS
+   display:grid + justify-items:center = centra horizontalmente cada hijo
+   ============================================================ */
 .categorias {
   margin-bottom: 3rem;
 }
@@ -372,10 +399,11 @@ header {
   font-size: 0.9rem;
 }
 
-/* =============================================
+/* ============================================================
    OFERTAS
-   ============================================= */
-
+   position:relative = necesario para el badge position:absolute
+   overflow:hidden = recorta la imagen
+   ============================================================ */
 .ofertas {
   margin-bottom: 3rem;
 }
@@ -394,6 +422,7 @@ header {
   box-shadow: 0 5px 20px #2E9E4F33;
 }
 
+/* position:absolute = se posiciona respecto al padre position:relative */
 .oferta-badge {
   position: absolute;
   top: 10px;
@@ -412,7 +441,7 @@ header {
   width: 100%;
   height: 200px;
   background-color: #6DCF8A;
-  object-fit: cover;
+  object-fit: cover; /* la imagen llena el espacio sin deformarse */
 }
 
 .oferta-card h3 {
@@ -423,7 +452,7 @@ header {
 
 .precio-anterior {
   color: #FFFFFF99;
-  text-decoration: line-through;
+  text-decoration: line-through; /* texto tachado */
   padding: 0 1rem;
   font-size: 0.9rem;
 }
@@ -435,10 +464,9 @@ header {
   padding: 0.3rem 1rem 1.2rem 1rem;
 }
 
-/* =============================================
+/* ============================================================
    INFO BOXES
-   ============================================= */
-
+   ============================================================ */
 .info-boxes {
   margin-bottom: 3rem;
 }
@@ -451,7 +479,7 @@ header {
   padding: 1.5rem;
   text-align: center;
   box-shadow: 0 3px 10px #0000001A;
-  border-left: 4px solid #2E9E4F;
+  border-left: 4px solid #2E9E4F; /* borde solo en el lado izquierdo */
 }
 
 .info-icon {
@@ -475,10 +503,10 @@ header {
   margin: 0.2rem 0;
 }
 
-/* =============================================
+/* ============================================================
    NEWSLETTER
-   ============================================= */
-
+   grid-template-columns:1fr auto = input ocupa todo, botón al lado
+   ============================================================ */
 .info-newslatter {
   margin-bottom: 3rem;
 }
@@ -510,9 +538,10 @@ header {
   margin-bottom: 1.2rem;
 }
 
+/* Móvil: input y botón apilados (1 columna) */
 .newslatter-form {
   display: grid;
-  grid-template-columns: 1fr; /* móvil: input y botón apilados */
+  grid-template-columns: 1fr;
   gap: 0.5rem;
   max-width: 450px;
   margin: 0 auto;
@@ -527,8 +556,9 @@ header {
   color: #2C3E50;
 }
 
+/* Tablet+: input ocupa todo el espacio, botón al lado */
 @media only screen and (min-width: 480px) {
-  .newslatter-form { grid-template-columns: 1fr auto; } /* tablet+: input | botón en fila */
+  .newslatter-form { grid-template-columns: 1fr auto; }
 }
 
 .newslatter-form input[type="email"]:focus {
@@ -550,10 +580,9 @@ header {
   background-color: #6DCF8A;
 }
 
-/* =============================================
+/* ============================================================
    CONTACTO
-   ============================================= */
-
+   ============================================================ */
 .contacto-section {
   margin-bottom: 3rem;
 }
@@ -573,13 +602,15 @@ header {
   font-size: 1.5rem;
 }
 
+/* display:grid sin columnas = equivalente a flex-direction:column */
 .contacto-form {
   display: grid;
   gap: 1.2rem;
 }
 
+/* display:grid sin columnas = label encima del input */
 .form-group {
-  display: grid; /* label encima del input */
+  display: grid;
 }
 
 .form-group label {
@@ -598,7 +629,7 @@ header {
   background-color: #E0E0E0;
 }
 
-/* cuando el usuario hace clic en el campo */
+/* :focus = cuando el usuario hace clic en el campo */
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -633,6 +664,7 @@ header {
   border-bottom: 2px solid #C8F0D8;
 }
 
+/* :last-child = selecciona el ÚLTIMO elemento con esa clase */
 .contacto-item:last-child {
   border-bottom: none;
   margin-bottom: 0;
@@ -650,10 +682,9 @@ header {
   margin: 0.3rem 0;
 }
 
-/* =============================================
-   MAPA
-   ============================================= */
-
+/* ============================================================
+   MAPA - Responsive con media queries
+   ============================================================ */
 .mapa-section {
   margin-bottom: 3rem;
 }
@@ -677,17 +708,16 @@ header {
 }
 
 @media only screen and (min-width: 576px) {
-  .mapa-img { height: 400px; }
+  .mapa-img { height: 400px; } /* tablet */
 }
 
 @media only screen and (min-width: 768px) {
-  .mapa-img { height: 450px; }
+  .mapa-img { height: 450px; } /* escritorio */
 }
 
-/* =============================================
+/* ============================================================
    FOOTER
-   ============================================= */
-
+   ============================================================ */
 footer {
   background-color: #2C3E50;
   color: #FFFFFF;
@@ -730,60 +760,3 @@ footer {
   color: #BDC3C7;
   font-size: 0.9rem;
 }
-
-
-
-/* 
-Ahora sí está todo convertido a CSS Grid. Resumen de todos los cambios:
-
-.header-top → grid con grid-template-areas para posicionar logo/buscador/iconos, responsive en desktop a una sola fila
-
-.buscador-wrapper → grid de 2 columnas (input | icono)
-
-.header-icons → grid de columnas automáticas por icono
-
-.header-nav-inner → grid de 1 columna en móvil, auto 1fr en desktop
-
-.nav-menu → grid de 1 columna en móvil, repeat(auto-fit, ...) en desktop
-
-.categoria-card → grid con justify-items: center
-
-.info-box → grid con justify-items: center
-
-.newslatter-form → grid de 1 columna en móvil, 1fr auto en tablet+
-
-.contacto-form y .form-group → grid (equivalente a flex-direction: column) */
-/* 
-Layouts principales:
-
-.banner-fila → grid 1 columna
-
-.fila-3 → grid responsive (1 → 2 → 3 columnas)
-
-.fila-4 → grid responsive (1 → 2 → 4 columnas)
-
-.fila-contacto → grid responsive (1 columna → 2fr 1fr)
-
-✅ Header:
-
-.header-top → grid con grid-template-areas
-
-.buscador-wrapper → grid 2 columnas
-
-.header-icons → grid auto-columnas
-
-.header-nav-inner → grid responsive
-
-.nav-menu → grid responsive
-
-✅ Componentes:
-
-.categoria-card → grid con justify-items: center
-
-.info-box → grid con justify-items: center
-
-.newslatter-form → grid responsive
-
-.contacto-form → grid
-
-.form-group → grid */

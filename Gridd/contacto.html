@@ -9,10 +9,10 @@
   </head>
   <body>
 
-
+    <!-- HEADER TOP - CSS Grid con grid-template-areas -->
     <header>
       <div class="header-top">
-        <span class="header-top-logo">Bienvenido/@ a Supermercado Valverde</span>
+        <span class="header-top-logo">Bienvenido/a a Supermercado Valverde</span>
         <div class="buscador-wrapper">
           <input type="text" class="buscador" placeholder="Buscador..." />
           <i class="bi bi-search buscador-icon"></i>
@@ -24,7 +24,7 @@
       </div>
     </header>
 
-
+    <!-- NAVBAR - .active marca la página actual -->
     <nav class="header-nav">
       <div class="header-nav-inner">
         <span class="logo">Valverde</span>
@@ -37,7 +37,7 @@
 
     <main class="container">
 
-
+      <!-- BANNER - .banner-fila: display:grid + grid-template-columns:1fr -->
       <div class="banner-fila">
         <section class="banner">
           <div class="banner-content">
@@ -47,11 +47,20 @@
         </section>
       </div>
 
+      <!-- =====================================================
+           FORMULARIO + INFO CONTACTO - .fila-contacto
+           Móvil: grid-template-columns:1fr (1 columna)
+           Desktop (≥768px): grid-template-columns:2fr 1fr
+           2fr = formulario ocupa el doble que la info lateral
+           ===================================================== -->
       <section class="contacto-section">
         <div class="fila-contacto">
+
+          <!-- FORMULARIO - .contacto-form: display:grid + gap -->
           <div class="formulario-container">
             <h2><i class="bi bi-envelope-paper"></i> Envíanos un mensaje</h2>
             <form class="contacto-form">
+              <!-- .form-group: display:grid (label encima del input) -->
               <div class="form-group">
                 <label for="nombre">Nombre completo *</label>
                 <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
@@ -83,9 +92,10 @@
             </form>
           </div>
 
-
+          <!-- INFO CONTACTO - ocultar-mobil = no se muestra en móvil -->
           <div class="info-contacto ocultar-mobil">
             <h2><i class="bi bi-headset"></i> Información de contacto</h2>
+            <!-- :last-child en CSS elimina el borde del último item -->
             <div class="contacto-item">
               <h3><i class="bi bi-geo-alt-fill"></i> Dirección Central</h3>
               <p>Calle Principal, 123</p>
@@ -113,6 +123,7 @@
         </div>
       </section>
 
+      <!-- MAPA - display:block + margin:0 auto = centrado -->
       <section class="mapa-section">
         <div>
           <div>
@@ -122,7 +133,7 @@
         </div>
       </section>
 
-
+      <!-- INFO BOXES - .fila-3: grid responsive (1 → 2 → 3 columnas) -->
       <section class="info-boxes">
         <div class="fila-3">
           <div>
@@ -154,6 +165,7 @@
 
     </main>
 
+    <!-- FOOTER - .fila-4: grid responsive (1 → 2 → 4 columnas) -->
     <footer>
       <div class="container">
         <div class="fila-4">

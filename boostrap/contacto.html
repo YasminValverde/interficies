@@ -4,149 +4,152 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contacto - Supermercado Valverde</title>
-    <link rel="stylesheet" href="boostrap.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="boostrap.css" />
   </head>
   <body>
 
-
-    <header>
-      <div class="header-top">
-        <span class="header-top-logo">Bienvenido/@ a Supermercado Valverde</span>
-        <div class="buscador-wrapper">
-          <input type="text" class="buscador" placeholder="Buscador..." />
-          <i class="bi bi-search buscador-icon"></i>
-        </div>
-        <div class="header-icons">
-          <i class="bi bi-person"></i>
-          <i class="bi bi-cart"></i>
+    <!-- HEADER TOP -->
+    <header class="py-2">
+      <div class="container-fluid px-4">
+        <div class="row align-items-center g-2">
+          <div class="col-12 col-md-4 text-start ps-0">
+            <span class="header-top-logo fw-semibold small">Bienvenido/a a Supermercado Valverde</span>
+          </div>
+          <div class="col-12 col-md-5">
+            <div class="buscador-wrapper d-flex align-items-center gap-2">
+              <input type="text" class="buscador flex-grow-1" placeholder="Buscador..." />
+              <i class="bi bi-search text-secondary"></i>
+            </div>
+          </div>
+          <div class="col-12 col-md-3 text-md-end">
+            <i class="bi bi-person fs-5 me-3 opacity-75"></i>
+            <i class="bi bi-cart fs-5 opacity-75"></i>
+          </div>
         </div>
       </div>
     </header>
 
-
-    <nav class="header-nav">
-      <div class="header-nav-inner">
-        <span class="logo">Valverde</span>
-        <ul class="nav-menu">
-          <li><a href="supermercado.html">Productos</a></li>
-          <li><a href="contacto.html" class="active">Contactanos</a></li>
-        </ul>
+    <!-- NAVBAR -->
+    <nav class="header-nav navbar navbar-expand-md sticky-top">
+      <div class="container-fluid px-4">
+        <span class="logo navbar-brand me-3 py-2">Valverde</span>
+        <button class="navbar-toggler border-0 ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <i class="bi bi-list text-white fs-4"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav gap-1">
+            <li class="nav-item"><a href="supermercado.html" class="nav-link px-3 py-2">Productos</a></li>
+            <li class="nav-item"><a href="contacto.html" class="nav-link active px-3 py-2">Contactanos</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
 
-    <main class="container">
+    <main class="container my-4">
 
-
-      <div class="banner-fila">
-        <section class="banner">
-          <div class="banner-content">
-            <h2>Contáctanos</h2>
-            <p>Estamos aquí para ayudarte</p>
-          </div>
-        </section>
+      <!-- BANNER -->
+      <div class="banner text-center p-5 mb-4 rounded-3 shadow">
+        <h2 class="display-5 fw-bold mb-2">Contáctanos</h2>
+        <p class="lead mb-0 opacity-75">Estamos aquí para ayudarte</p>
       </div>
 
-      <section class="contacto-section">
-        <div class="fila-contacto">
-          <div class="formulario-container">
-            <h2><i class="bi bi-envelope-paper"></i> Envíanos un mensaje</h2>
-            <form class="contacto-form">
-              <div class="form-group">
-                <label for="nombre">Nombre completo *</label>
-                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
-              </div>
-              <div class="form-group">
-                <label for="email">Email *</label>
-                <input type="email" id="email" name="email" required placeholder="tu@email.com" />
-              </div>
-              <div class="form-group">
-                <label for="telefono">Teléfono</label>
-                <input type="tel" id="telefono" name="telefono" placeholder="600 123 456" />
-              </div>
-              <div class="form-group">
-                <label for="asunto">Asunto *</label>
-                <select id="asunto" name="asunto" required>
-                  <option value="">Selecciona un asunto</option>
-                  <option value="consulta">Consulta general</option>
-                  <option value="sugerencia">Sugerencia</option>
-                  <option value="queja">Queja o reclamación</option>
-                  <option value="pedido">Información de pedido</option>
-                  <option value="trabajo">Trabaja con nosotros</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="mensaje">Mensaje *</label>
-                <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe tu mensaje aquí..."></textarea>
-              </div>
-              <button type="submit" class="btn-submit">Enviar mensaje</button>
-            </form>
+      <!-- FORMULARIO + INFO -->
+      <section class="mb-5">
+        <div class="row g-4">
+
+          <!-- FORMULARIO -->
+          <div class="col-12 col-md-8">
+            <div class="formulario-container bg-white rounded-3 shadow-sm p-4 h-100">
+              <h4 class="mb-4"><i class="bi bi-envelope-paper me-2"></i>Envíanos un mensaje</h4>
+              <form>
+                <div class="mb-3">
+                  <label for="nombre" class="form-label fw-semibold">Nombre completo *</label>
+                  <input type="text" id="nombre" name="nombre" class="form-control" required placeholder="Tu nombre" />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label fw-semibold">Email *</label>
+                  <input type="email" id="email" name="email" class="form-control" required placeholder="tu@email.com" />
+                </div>
+                <div class="mb-3">
+                  <label for="telefono" class="form-label fw-semibold">Teléfono</label>
+                  <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="600 123 456" />
+                </div>
+                <div class="mb-3">
+                  <label for="asunto" class="form-label fw-semibold">Asunto *</label>
+                  <select id="asunto" name="asunto" class="form-select" required>
+                    <option value="">Selecciona un asunto</option>
+                    <option value="consulta">Consulta general</option>
+                    <option value="sugerencia">Sugerencia</option>
+                    <option value="queja">Queja o reclamación</option>
+                    <option value="pedido">Información de pedido</option>
+                    <option value="trabajo">Trabaja con nosotros</option>
+                  </select>
+                </div>
+                <div class="mb-4">
+                  <label for="mensaje" class="form-label fw-semibold">Mensaje *</label>
+                  <textarea id="mensaje" name="mensaje" class="form-control" rows="5" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit btn text-white w-100">Enviar mensaje</button>
+              </form>
+            </div>
           </div>
 
-
-          <div class="info-contacto ocultar-mobil">
-            <h2><i class="bi bi-headset"></i> Información de contacto</h2>
-            <div class="contacto-item">
-              <h3><i class="bi bi-geo-alt-fill"></i> Dirección Central</h3>
-              <p>Calle Principal, 123</p>
-              <p>08001 Barcelona</p>
-              <p>España</p>
-            </div>
-            <div class="contacto-item">
-              <h3><i class="bi bi-telephone-fill"></i> Teléfonos</h3>
-              <p><strong>Atención al cliente:</strong></p>
-              <p>900 123 456 (gratuito)</p>
-              <p><strong>Horario:</strong></p>
-              <p>Lunes a Viernes: 9:00 - 18:00</p>
-            </div>
-            <div class="contacto-item">
-              <h3><i class="bi bi-envelope-fill"></i> Email</h3>
-              <p>info@valverde.com</p>
-              <p>atencioncliente@valverde.com</p>
-            </div>
-            <div class="contacto-item">
-              <h3><i class="bi bi-clock-fill"></i> Horario Tiendas</h3>
-              <p><strong>Lunes a Sábado:</strong> 9:00 - 21:00</p>
-              <p><strong>Domingos:</strong> 10:00 - 14:00</p>
+          <!-- INFO CONTACTO (oculto en móvil) -->
+          <div class="col-md-4 d-none d-md-block">
+            <div class="info-contacto bg-white rounded-3 shadow-sm p-4 h-100">
+              <h4 class="mb-4"><i class="bi bi-headset me-2"></i>Información de contacto</h4>
+              <div class="contacto-item pb-3 mb-3">
+                <h6 class="mb-2"><i class="bi bi-geo-alt-fill me-1"></i> Dirección Central</h6>
+                <p class="mb-0">Calle Principal, 123<br>08001 Barcelona<br>España</p>
+              </div>
+              <div class="contacto-item pb-3 mb-3">
+                <h6 class="mb-2"><i class="bi bi-telephone-fill me-1"></i> Teléfonos</h6>
+                <p class="mb-0">900 123 456 (gratuito)<br>Lunes a Viernes: 9:00 - 18:00</p>
+              </div>
+              <div class="contacto-item pb-3 mb-3">
+                <h6 class="mb-2"><i class="bi bi-envelope-fill me-1"></i> Email</h6>
+                <p class="mb-0">info@valverde.com<br>atencioncliente@valverde.com</p>
+              </div>
+              <div class="contacto-item">
+                <h6 class="mb-2"><i class="bi bi-clock-fill me-1"></i> Horario Tiendas</h6>
+                <p class="mb-0">Lunes a Sábado: 9:00 - 21:00<br>Domingos: 10:00 - 14:00</p>
+              </div>
             </div>
           </div>
+
         </div>
       </section>
 
-      <section class="mapa-section">
-        <div>
-          <div>
-            <h2><i class="bi bi-map"></i> Encuéntranos</h2>
-            <img src="/Img/mapa.png" alt="Mapa de ubicación" class="mapa-img" />
-          </div>
-        </div>
+      <!-- MAPA -->
+      <section class="mb-5 text-center">
+        <h2 class="section-title fs-3 mb-4"><i class="bi bi-map me-2"></i>Encuéntranos</h2>
+        <img src="../Img/mapa.png" alt="Mapa de ubicación" class="mapa-img" />
       </section>
 
-
-      <section class="info-boxes">
-        <div class="fila-3">
-          <div>
-            <div class="info-box">
-              <div class="info-icon"><i class="bi bi-truck"></i></div>
-              <h3>Envío a Domicilio</h3>
-              <p>Recibe tu compra</p>
-              <p>en 24-48 horas</p>
+      <!-- INFO BOXES -->
+      <section class="mb-4">
+        <div class="row g-3">
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="info-box bg-white rounded-3 shadow-sm p-4 h-100 text-center">
+              <div class="info-icon mb-2"><i class="bi bi-truck"></i></div>
+              <h5 class="mb-2">Envío a Domicilio</h5>
+              <p class="mb-0">Recibe tu compra en 24-48 horas</p>
             </div>
           </div>
-          <div>
-            <div class="info-box">
-              <div class="info-icon"><i class="bi bi-credit-card"></i></div>
-              <h3>Pago Seguro</h3>
-              <p>Múltiples métodos</p>
-              <p>de pago disponibles</p>
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="info-box bg-white rounded-3 shadow-sm p-4 h-100 text-center">
+              <div class="info-icon mb-2"><i class="bi bi-credit-card"></i></div>
+              <h5 class="mb-2">Pago Seguro</h5>
+              <p class="mb-0">Múltiples métodos de pago disponibles</p>
             </div>
           </div>
-          <div>
-            <div class="info-box">
-              <div class="info-icon"><i class="bi bi-gift"></i></div>
-              <h3>Ofertas Exclusivas</h3>
-              <p>Descuentos especiales</p>
-              <p>para clientes</p>
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="info-box bg-white rounded-3 shadow-sm p-4 h-100 text-center">
+              <div class="info-icon mb-2"><i class="bi bi-gift"></i></div>
+              <h5 class="mb-2">Ofertas Exclusivas</h5>
+              <p class="mb-0">Descuentos especiales para clientes</p>
             </div>
           </div>
         </div>
@@ -154,42 +157,43 @@
 
     </main>
 
-    <footer>
+    <!-- FOOTER -->
+    <footer class="pt-4 pb-0">
       <div class="container">
-        <div class="fila-4">
-          <div class="footer-col">
-            <h4>Supermercado Valverde</h4>
+        <div class="row g-4">
+          <div class="col-12 col-sm-6 col-md-3">
+            <h5>Supermercado Valverde</h5>
             <p>Tu supermercado de confianza desde 1995</p>
-            <p>Calidad, frescura y los mejores precios</p>
           </div>
-          <div class="footer-col">
-            <h4>Enlaces Rápidos</h4>
-            <ul>
-              <li><a href="supermercado.html">Inicio</a></li>
-              <li><a href="#">Productos</a></li>
-              <li><a href="#">Ofertas</a></li>
-              <li><a href="#">Supermercados</a></li>
+          <div class="col-12 col-sm-6 col-md-3">
+            <h5>Enlaces Rápidos</h5>
+            <ul class="list-unstyled">
+              <li class="mb-1"><a href="supermercado.html">Inicio</a></li>
+              <li class="mb-1"><a href="#">Productos</a></li>
+              <li class="mb-1"><a href="#">Ofertas</a></li>
+              <li class="mb-1"><a href="#">Supermercados</a></li>
             </ul>
           </div>
-          <div class="footer-col">
-            <h4>Contacto</h4>
-            <p><i class="bi bi-telephone-fill"></i> Tel: 900 123 456</p>
-            <p><i class="bi bi-envelope-fill"></i> Email: info@valverde.com</p>
-            <p><i class="bi bi-geo-alt-fill"></i> Barcelona, España</p>
+          <div class="col-12 col-sm-6 col-md-3">
+            <h5>Contacto</h5>
+            <p><i class="bi bi-telephone-fill me-1"></i> 900 123 456</p>
+            <p><i class="bi bi-envelope-fill me-1"></i> info@valverde.com</p>
+            <p><i class="bi bi-geo-alt-fill me-1"></i> Barcelona, España</p>
           </div>
-          <div class="footer-col">
-            <h4>Síguenos</h4>
-            <p><i class="bi bi-facebook"></i> Facebook</p>
-            <p><i class="bi bi-instagram"></i> Instagram</p>
-            <p><i class="bi bi-twitter-x"></i> Twitter</p>
-            <p><i class="bi bi-linkedin"></i> LinkedIn</p>
+          <div class="col-12 col-sm-6 col-md-3">
+            <h5>Síguenos</h5>
+            <p><i class="bi bi-facebook me-1"></i> Facebook</p>
+            <p><i class="bi bi-instagram me-1"></i> Instagram</p>
+            <p><i class="bi bi-twitter-x me-1"></i> Twitter</p>
+            <p><i class="bi bi-linkedin me-1"></i> LinkedIn</p>
           </div>
         </div>
-        <div class="footer-bottom">
-          <p>&copy; 2026 Supermercado Valverde. Todos los derechos reservados.</p>
+        <div class="footer-bottom text-center py-3 mt-3">
+          <p class="mb-0">&copy; 2026 Supermercado Valverde. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

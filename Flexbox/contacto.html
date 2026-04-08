@@ -2,6 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <!-- viewport: OBLIGATORIO para responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contacto - Supermercado Valverde</title>
     <link rel="stylesheet" href="flex.css" />
@@ -9,10 +10,10 @@
   </head>
   <body>
 
-
+    <!-- HEADER TOP - Flexbox (igual que supermercado.html) -->
     <header>
       <div class="header-top">
-        <span class="header-top-logo">Bienvenido/@ a Supermercado Valverde</span>
+        <span class="header-top-logo">Bienvenido/a a Supermercado Valverde</span>
         <div class="buscador-wrapper">
           <input type="text" class="buscador" placeholder="Buscador..." />
           <i class="bi bi-search buscador-icon"></i>
@@ -24,12 +25,13 @@
       </div>
     </header>
 
-
+    <!-- NAVBAR - .active marca la página actual -->
     <nav class="header-nav">
       <div class="header-nav-inner">
         <span class="logo">Valverde</span>
         <ul class="nav-menu">
           <li><a href="supermercado.html">Productos</a></li>
+          <!-- .active = página actual (contacto) -->
           <li><a href="contacto.html" class="active">Contactanos</a></li>
         </ul>
       </div>
@@ -37,7 +39,7 @@
 
     <main class="container">
 
-
+      <!-- BANNER -->
       <div class="banner-fila">
         <section class="banner">
           <div class="banner-content">
@@ -47,25 +49,39 @@
         </section>
       </div>
 
+      <!-- =====================================================
+           FORMULARIO + INFO CONTACTO - .fila-contacto
+           .fila-contacto: display:flex + flex-wrap:wrap
+           .formulario-container: flex-grow:2 (ocupa 2/3)
+           .info-contacto: flex-grow:1 (ocupa 1/3)
+           flex-basis define el tamaño mínimo antes de crecer
+           ===================================================== -->
       <section class="contacto-section">
         <div class="fila-contacto">
+
+          <!-- FORMULARIO - .contacto-form: display:flex + flex-direction:column -->
           <div class="formulario-container">
             <h2><i class="bi bi-envelope-paper"></i> Envíanos un mensaje</h2>
             <form class="contacto-form">
+              <!-- .form-group: display:flex + flex-direction:column (label encima del input) -->
               <div class="form-group">
                 <label for="nombre">Nombre completo *</label>
+                <!-- required = validación HTML nativa (campo obligatorio) -->
                 <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
               </div>
               <div class="form-group">
                 <label for="email">Email *</label>
+                <!-- type="email" = validación de formato email -->
                 <input type="email" id="email" name="email" required placeholder="tu@email.com" />
               </div>
               <div class="form-group">
                 <label for="telefono">Teléfono</label>
+                <!-- type="tel" = teclado numérico en móvil -->
                 <input type="tel" id="telefono" name="telefono" placeholder="600 123 456" />
               </div>
               <div class="form-group">
                 <label for="asunto">Asunto *</label>
+                <!-- select = lista desplegable -->
                 <select id="asunto" name="asunto" required>
                   <option value="">Selecciona un asunto</option>
                   <option value="consulta">Consulta general</option>
@@ -77,15 +93,18 @@
               </div>
               <div class="form-group">
                 <label for="mensaje">Mensaje *</label>
+                <!-- textarea = campo de texto multilínea | rows = altura inicial -->
                 <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe tu mensaje aquí..."></textarea>
               </div>
+              <!-- type="submit" = envía el formulario -->
               <button type="submit" class="btn-submit">Enviar mensaje</button>
             </form>
           </div>
 
-
+          <!-- INFO CONTACTO - ocultar-mobil = no se muestra en móvil -->
           <div class="info-contacto ocultar-mobil">
             <h2><i class="bi bi-headset"></i> Información de contacto</h2>
+            <!-- .contacto-item:last-child { border-bottom:none } = el último no tiene borde -->
             <div class="contacto-item">
               <h3><i class="bi bi-geo-alt-fill"></i> Dirección Central</h3>
               <p>Calle Principal, 123</p>
@@ -113,6 +132,12 @@
         </div>
       </section>
 
+      <!-- =====================================================
+           MAPA
+           .mapa-img: display:block + margin:0 auto = centrado
+           object-fit:cover = imagen llena sin deformarse
+           Media queries: altura crece en pantallas más grandes
+           ===================================================== -->
       <section class="mapa-section">
         <div>
           <div>
@@ -122,7 +147,7 @@
         </div>
       </section>
 
-
+      <!-- INFO BOXES - .fila-3 (mismo sistema de columnas) -->
       <section class="info-boxes">
         <div class="fila-3">
           <div>
@@ -154,6 +179,7 @@
 
     </main>
 
+    <!-- FOOTER - .fila-4 (mismo sistema de columnas) -->
     <footer>
       <div class="container">
         <div class="fila-4">

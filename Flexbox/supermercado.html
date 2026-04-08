@@ -2,17 +2,26 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <!-- viewport: OBLIGATORIO para responsive. width=device-width adapta al ancho del dispositivo -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VALVERDE</title>
+    <!-- CSS propio con Flexbox (sin Bootstrap) -->
     <link rel="stylesheet" href="flex.css" />
+    <!-- Bootstrap Icons: librería de iconos (se usan con clases bi bi-nombre) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   </head>
   <body>
 
-    <!-- CAPÇALERA: fila superior -->
+    <!-- =====================================================
+         HEADER TOP - Flexbox
+         .header-top usa display:flex + flex-wrap:wrap
+         En móvil: logo e iconos en fila, buscador debajo (order:3)
+         En desktop: los 3 elementos en una sola fila
+         ===================================================== -->
     <header>
       <div class="header-top">
         <span class="header-top-logo">Bienvenido a Supermercado Valverde</span>
+        <!-- buscador-wrapper: display:flex con input (flex-grow:1) e icono -->
         <div class="buscador-wrapper">
           <input type="text" class="buscador" placeholder="Buscador..." />
           <i class="bi bi-search buscador-icon"></i>
@@ -24,11 +33,17 @@
       </div>
     </header>
 
-    <!-- NAVEGACIÓ: fila inferior amb logo -->
+    <!-- =====================================================
+         NAVBAR - Flexbox
+         .header-nav-inner: flex-direction:column en móvil → row en desktop
+         position:sticky + top:0 = se queda fija al hacer scroll
+         .active = marca la página actual en el menú
+         ===================================================== -->
     <nav class="header-nav">
       <div class="header-nav-inner">
         <span class="logo">Valverde</span>
         <ul class="nav-menu">
+          <!-- .active = página actual -->
           <li><a href="#productos" class="active">Productos</a></li>
           <li><a href="contacto.html">Contactanos</a></li>
         </ul>
@@ -36,8 +51,12 @@
     </nav>
 
     <main class="container">
+      <!-- container: max-width:1200px + margin:0 auto = centra el contenido -->
 
-      <!-- BANNER: 12 columnes -->
+      <!-- =====================================================
+           BANNER - .banner-fila usa display:flex
+           El hijo tiene flex-grow:1 para ocupar todo el ancho
+           ===================================================== -->
       <div class="banner-fila">
         <section class="banner">
           <div class="banner-content">
@@ -47,11 +66,18 @@
         </section>
       </div>
 
-      <!-- CATEGORIES: mòbil 1 col | tauleta 2 col (col-s-6) | escriptori 2 col (col-4) -->
-      <section class="categorias">
+      <!-- =====================================================
+           CATEGORÍAS - .fila-3 usa display:flex + flex-wrap:wrap
+           flex-basis controla el ancho de cada tarjeta:
+           · Móvil (< 576px): flex-basis:100% = 1 columna
+           · Tablet (≥ 576px): flex-basis:50% = 2 columnas
+           · Desktop (≥ 768px): flex-basis:33.33% = 3 columnas
+           ===================================================== -->
+      <section id="productos" class="categorias">
         <h2 class="section-title">Nuestras Categorías</h2>
         <div class="fila-3">
           <div>
+            <!-- categoria-card: display:flex + flex-direction:column + align-items:center -->
             <div class="categoria-card">
               <div class="categoria-icon"><i class="bi bi-flower1"></i></div>
               <h3>Frutas y Verduras</h3>
@@ -96,15 +122,23 @@
         </div>
       </section>
 
-      <!-- OFERTES: mòbil 1 col | tauleta 2 col (col-s-6) | escriptori 3 col (col-4) -->
+      <!-- =====================================================
+           OFERTAS - .fila-3 (mismo sistema de columnas)
+           .oferta-card: position:relative para el badge
+           .oferta-badge: position:absolute top:10px right:10px
+           object-fit:cover en la imagen = llena sin deformarse
+           ===================================================== -->
       <section class="ofertas">
         <h2 class="section-title">Ofertas de la Semana</h2>
         <div class="fila-3">
           <div>
+            <!-- position:relative necesario para que el badge se posicione dentro -->
             <div class="oferta-card">
+              <!-- position:absolute top:10px right:10px = esquina superior derecha -->
               <div class="oferta-badge">-30%</div>
               <img class="oferta-img" src="/Img/Manzana-Roja-Infantil-4-Unidades-Por-Lb-Aproximadamente-1-30.webp" alt="Manzanas Golden" />
               <h3>Manzanas Golden</h3>
+              <!-- text-decoration:line-through = texto tachado -->
               <p class="precio-anterior">3.50€/kg</p>
               <p class="precio-actual">2.45€/kg</p>
             </div>
@@ -130,10 +164,11 @@
         </div>
       </section>
 
-      <!-- INFO BOXES: mòbil 1 col | tauleta 2 col (col-s-6) | escriptori 3 col (col-4) -->
+      <!-- INFO BOXES - .fila-3 (mismo sistema de columnas) -->
       <section class="info-boxes">
         <div class="fila-3">
           <div>
+            <!-- info-box: border-left = borde solo en el lado izquierdo -->
             <div class="info-box">
               <div class="info-icon"><i class="bi bi-clock"></i></div>
               <h3>Horario</h3>
@@ -161,7 +196,11 @@
         </div>
       </section>
 
-
+      <!-- =====================================================
+           NEWSLETTER
+           .newslatter-form: display:flex + flex-wrap:wrap
+           El input tiene flex-grow:1 para ocupar todo el espacio
+           ===================================================== -->
       <section class="info-newslatter">
         <div class="newslatter">
           <div class="newslatter-icon"><i class="bi bi-envelope-heart"></i></div>
@@ -174,10 +213,13 @@
         </div>
       </section>
 
-
     </main>
 
-    <!-- FOOTER: mòbil 1 col | tauleta 2 col (col-s-6) | escriptori 3 col (col-3) -->
+    <!-- =====================================================
+         FOOTER - .fila-4 usa display:flex + flex-wrap:wrap
+         flex-basis:100% → 50% → 25% según el tamaño de pantalla
+         list-style:none = elimina los puntos de la lista
+         ===================================================== -->
     <footer>
       <div class="container">
         <div class="fila-4">
