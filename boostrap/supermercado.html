@@ -2,26 +2,18 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <!-- viewport: OBLIGATORIO para responsive. width=device-width adapta al ancho del dispositivo -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VALVERDE</title>
-    <!-- Bootstrap CSS: framework de rejilla y componentes -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
     <!-- Bootstrap Icons: librería de iconos (se usan con clases bi bi-nombre) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <!-- CSS propio: siempre DESPUÉS de Bootstrap para poder sobreescribir estilos -->
+
     <link rel="stylesheet" href="boostrap.css" />
   </head>
   <body>
 
-    <!-- =====================================================
-         HEADER TOP
-         - container-fluid: ocupa todo el ancho (sin márgenes laterales)
-         - row + col: sistema de rejilla de Bootstrap (12 columnas)
-         - col-12 col-md-4: en móvil ocupa 12 cols, en md+ ocupa 4 cols
-         - align-items-center: alinea verticalmente al centro (flexbox)
-         - g-2: gap entre columnas (espaciado)
-         ===================================================== -->
     <header class="py-2">
       <div class="container-fluid px-4">
         <div class="row align-items-center g-2">
@@ -46,13 +38,6 @@
       </div>
     </header>
 
-    <!-- =====================================================
-         NAVBAR
-         - navbar-expand-md: menú horizontal en md+, colapsado en móvil
-         - sticky-top: se queda fija al hacer scroll (posición fija)
-         - data-bs-toggle="collapse" + data-bs-target: conecta el botón
-           hamburguesa con el menú (JavaScript de Bootstrap)
-         ===================================================== -->
     <nav class="header-nav navbar navbar-expand-md sticky-top">
       <div class="container-fluid px-4">
         <span class="logo navbar-brand me-3 py-2">Valverde</span>

@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.todo {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "cap"
+    "cos"
+    "serveis";
+  min-height: 100vh;
+}
+
+.cap {
+  grid-area: cap;
+  background-color: blue;
+  padding: 1rem;
+}
+.cap h2 {
+  color: white;
+  text-align: left;
+}
+
+.cos {
+  grid-area: cos;
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-areas: "sidebar contingut";
+}
+
+.sidebar {
+  grid-area: sidebar ;
+  background-color: #fd7e14;
+  padding: 1rem;
+  text-align: center;
+}
+a
+.contingut {
+  grid-area: contingut;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  text-align: left;
+}
+
+.serveis {
+  grid-area: serveis;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "serveiA serveiB serveiC serveiD";
+}
+
+.servei {
+  background-color: #b8a5db;
+  padding: 1rem;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+li a {
+  text-decoration: none;
+  color: black;
+}
+
+@media (max-width: 575px) {
+  .cap       { background-color: black; }
+  .cap h2    { text-align: center; }
+  .cos       { grid-template-columns: 1fr; grid-template-areas: "sidebar" "contingut"; }
+  .sidebar   { background-color: yellow; text-align: right; }
+  .contingut { background-color: white; text-align: left; }
+  .serveis   { grid-template-columns: 1fr; grid-template-areas: "serveiA" "serveiB" "serveiC" "serveiD"; }
+  .servei    { background-color: green; }
+}
+
+/* REVISA QUERIS */
